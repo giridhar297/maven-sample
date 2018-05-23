@@ -18,6 +18,11 @@ pipeline {
             steps { 
                sh 'mvn -f my-app/pom.xml -Dmaven.test.failure.ignore=true install'
             }
+	post {
+                success {
+                    junit 'target/surefire-reports/TEST-com.mycompany.app.AppTest.xml' 
+                }
+            }
         }
     }
 }
