@@ -18,11 +18,7 @@ pipeline {
             steps { 
                sh 'mvn -f my-app/pom.xml -Dmaven.test.failure.ignore=true install'
             }
-	post {
-                success {
-                     'target/surefire-reports/.xml' 
-                }
-            }
+	
         }
     }
 }
