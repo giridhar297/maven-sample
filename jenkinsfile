@@ -39,5 +39,7 @@ pipeline {
 	sonar.language=java
 	sonar.sourceEncoding=UTF-8
 	sonar.java.binaries=my-app/target/classes/com/mycompany/app
+	}
+       }
   }
 }
