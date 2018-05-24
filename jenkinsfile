@@ -3,6 +3,7 @@ pipeline {
     tools {
         maven 'Maven'
 	jdk 'JAVA_HOME'
+	sonar 'sonar_scan'
     }
     stages { 
 
@@ -26,5 +27,17 @@ pipeline {
               //archive 'target/*.jar'
 	}
    }	
+  	stage('Analysis'){
+	    steps{
+        sonar.host.url=http://10.5.2.45:9000/sonar/
+	sonar.projectKey=sample_pipeline
+	sonar.projectName=sample_pipeline
+	sonar.login=admin
+	sonar.password=admin
+	sonar.projectVersion=1.0
+	sonar.sources=my-app/src
+	sonar.language=java
+	sonar.sourceEncoding=UTF-8
+	sonar.java.binaries=my-app/target/classes/com/mycompany/app
   }
 }
