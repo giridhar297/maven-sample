@@ -27,14 +27,5 @@ pipeline {
               //archive 'target/*.jar'
 	}
    }	
-	stage('SonarQube analysis') {
-         steps{
-    // requires SonarQube Scanner 2.8+
-    def scannerHome = tool 'sonar_scan';
-    withSonarQubeEnv('My SonarQube Server') {
-      sh "${scannerHome}/bin/sonar-scanner"
-    }
-   }
-  }
   }
 }
